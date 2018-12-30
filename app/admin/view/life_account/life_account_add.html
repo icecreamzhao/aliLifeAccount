@@ -1,0 +1,58 @@
+<form action="{:url()}" method="post" class="form_single">
+    <div class="box">
+      <div class="box-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>标题</label>
+              <span>（生活号标题不能为空）</span>
+              <input class="form-control" name="life_name" placeholder="请输入标题" type="text">
+            </div>
+          </div>
+ 
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>生活号appId</label>
+              <span>（生活号appId不能为空）</span>
+              <input class="form-control" name="appid" placeholder="请输入appId" type="number">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>商户公钥</label>
+              <span>（商户公钥不能为空）</span>
+              <input class="form-control" name="alipay_public_key" placeholder="请输入商户公钥" type="text">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>商户私钥</label>
+              <span>（商户私钥不能为空）</span>
+              <input class="form-control" name="merchant_private_key" placeholder="请输入商户私钥" type="text">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>生活号类型</label>
+              <span>（请选择一个生活号类型）</span>
+              <select title="typeId" name="life_type_id" class="form-control">
+                {notempty name='lifeTypeList'}
+                  {volist name='lifeTypeList' id='vo'}
+                    <option value="{$vo.id}">{$vo.type_name}</option>
+                  {/volist}
+                {/notempty}
+              </select>
+            </div>
+          </div>
+            
+        </div>
+      </div>
+      <div class="box-footer">
+        
+        {include file="layout/edit_btn_group"/}
+      </div>
+    </div>
+</form>
